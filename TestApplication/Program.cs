@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,9 +12,11 @@ namespace TestApplication
         {
 
             List<Word> Words = new List<Word>();
+
+            Console.Write("Enter name of file - ");
             try
             {
-                using (StreamReader sr = new StreamReader("text.txt", Encoding.Default))
+                using (StreamReader sr = new StreamReader(Console.ReadLine(), Encoding.Default))
                 {
                     string line;
                      
