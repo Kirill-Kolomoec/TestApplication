@@ -10,7 +10,7 @@ namespace TestApplication
     {
         static void Main(string[] args)
         {
-
+             
             List<Word> Words = new List<Word>();
 
             Console.Write("Enter name of file - ");
