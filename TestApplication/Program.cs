@@ -18,7 +18,7 @@ namespace TestApplication
                 using (StreamReader sr = new StreamReader("text.txt", Encoding.Default))
                 {
                     string line;
-
+                     
                     for (int index = 1; ((line = sr.ReadLine()) != null); index++)
                     {
                         line = new string(line.Where(t => char.IsLetterOrDigit(t) || char.IsWhiteSpace(t)).ToArray());
