@@ -12,18 +12,20 @@ namespace TestApplication
         {
              
             List<Word> Words = new List<Word>();
-
+            //ввод названия файла с консоли
             Console.Write("Enter name of file - ");
             try
             {
+                //считывание с файла
                 using (StreamReader sr = new StreamReader(Console.ReadLine(), Encoding.Default))
                 {
                     string line;
                      
                     for (int index = 1; ((line = sr.ReadLine()) != null); index++)
                     {
+                        //удаление лишних символов
                         line = new string(line.Where(t => char.IsLetterOrDigit(t) || char.IsWhiteSpace(t)).ToArray());
-
+                        //разделение слов
                         foreach (var item in line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
                         {
                             var FindWord = (Words.Find(x => item.ToLower() == x.wordValue.ToLower()));
@@ -47,7 +49,7 @@ namespace TestApplication
 
             }
 
-
+            //запись в файл
             using (StreamWriter file = new StreamWriter("result.txt", false, Encoding.Default))
             {
                 foreach (var word in Words.OrderBy(u => u.wordValue))
