@@ -21,7 +21,7 @@ namespace TestApplication
 
                     for (int index = 1; ((line = sr.ReadLine()) != null); index++)
                     {
-                        Replacing(ref line);
+                        line = new string(line.Where(t => char.IsLetterOrDigit(t) || char.IsWhiteSpace(t)).ToArray());
 
                         foreach (var item in line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
                         {
@@ -61,18 +61,7 @@ namespace TestApplication
             }
         }
 
-        static void Replacing(ref string line)
-        {
-            line = line.Replace("”", "");
-            line = line.Replace("“", "");
-            line = line.Replace("(", "");
-            line = line.Replace(")", "");
-            line = line.Replace(",", "");
-            line = line.Replace(".", "");
-            line = line.Replace("!", "");
-            line = line.Replace("?", "");
-            line = line.Replace("\"", "");
-        }
+        
     }
 
 
